@@ -1,223 +1,85 @@
-<template >
-    <div>
-        <section>
-  <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
-    <div
-      class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:items-start"
-    >
-    <div class="lg:sticky lg:top-4">
-      <details
-        open
-        class="overflow-hidden border border-gray-200 rounded"
-      >
-        <summary class="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden">
-          <span class="text-sm font-medium">
-            Toggle Filters
-          </span>
-
-          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </summary>
-
-        <form
-          action=""
-          class="border-t border-gray-200 lg:border-t-0"
-        >
-          <fieldset>
-            <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-              Type
-            </legend>
-
-            <div class="px-5 py-6 space-y-2">
-              <div class="flex items-center">
-                <input
-                  id="toy"
-                  type="checkbox"
-                  name="type[toy]"
-                  class="w-5 h-5 border-gray-300 rounded"
-                />
-
-                <label
-                  for="toy"
-                  class="ml-3 text-sm font-medium"
-                >
-                  Toy
-                </label>
+<template>
+<div>
+    <div class="2xl:container 2xl:mx-auto">
+        <div class="bg-gray-50 text-center lg:py-10 md:py-8 py-6">
+            <p class="w-10/12 mx-auto md:w-full font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-center text-gray-800">Summer Collection Vol-1</p>
+        </div>
+        <div class="py-6 lg:px-20 md:px-6 px-4">
+            <!-- BreadCumb -->
+            <PageBreadCumb></PageBreadCumb>
+            <!-- BreadCumb -->
+          
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-3 justify-center items-center">
+                    <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.75 7.5H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
+                        <path d="M3.75 12H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
+                        <path d="M3.75 16.5H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
+                    </svg>
+                    <p class="font-normal text-base leading-4 text-gray-800">Filter</p>
+                </div>
+                <p class="cursor-pointer hover:underline duration-100 font-normal text-base leading-4 text-gray-600">Showing 18 products</p>
+                <SortAndPagination></SortAndPagination>
+            </div>
+            <div class="grid grid-rows-3 grid-flow-col gap-4">
+              <div class="row-start-1 row-end-4 ...">
+                <FilterProduct></FilterProduct>
               </div>
 
-              <div class="flex items-center">
-                <input
-                  id="game"
-                  type="checkbox"
-                  name="type[game]"
-                  class="w-5 h-5 border-gray-300 rounded"
-                />
-
-                <label
-                  for="game"
-                  class="ml-3 text-sm font-medium"
-                >
-                  Game
-                </label>
-              </div>
-
-              <div class="flex items-center">
-                <input
-                  id="outdoor"
-                  type="checkbox"
-                  name="type[outdoor]"
-                  class="w-5 h-5 border-gray-300 rounded"
-                />
-
-                <label
-                  for="outdoor"
-                  class="ml-3 text-sm font-medium"
-                >
-                  Outdoor
-                </label>
-              </div>
-
-              <div class="pt-2">
-                <button
-                  type="button"
-                  class="text-xs text-gray-500 underline"
-                >
-                  Reset Type
-                </button>
+              <div class="row-start-1 row-end-4 ...">
+                  <!-- Product Grid  -->
+                    <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10 ">
+                        <!-- PRoduct Card  -->
+                        <template v-for="product in products">
+                          <ProductCard :product="product" @productQuickView="productQuickView"></ProductCard>
+                        </template>
+                    </div>
+                  <!-- Product Grid  -->
               </div>
             </div>
-          </fieldset>
-
-          <div>
-            <fieldset>
-              <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-                Age
-              </legend>
-
-              <div class="px-5 py-6 space-y-2">
-                <div class="flex items-center">
-                  <input
-                    id="3+"
-                    type="checkbox"
-                    name="age[3+]"
-                    class="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="3+"
-                    class="ml-3 text-sm font-medium"
-                  >
-                    3+
-                  </label>
-                </div>
-
-                <div class="flex items-center">
-                  <input
-                    id="8+"
-                    type="checkbox"
-                    name="age[8+]"
-                    class="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="8+"
-                    class="ml-3 text-sm font-medium"
-                  >
-                    8+
-                  </label>
-                </div>
-
-                <div class="flex items-center">
-                  <input
-                    id="12+"
-                    type="checkbox"
-                    name="age[12+]"
-                    class="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="12+"
-                    class="ml-3 text-sm font-medium"
-                  >
-                    12+
-                  </label>
-                </div>
-
-                <div class="flex items-center">
-                  <input
-                    id="16+"
-                    type="checkbox"
-                    name="age[16+]"
-                    class="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="16+"
-                    class="ml-3 text-sm font-medium"
-                  >
-                    16+
-                  </label>
-                </div>
-
-                <div class="pt-2">
-                  <button
-                    type="button"
-                    class="text-xs text-gray-500 underline"
-                  >
-                    Reset Age
-                  </button>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="flex justify-between px-5 py-3 border-t border-gray-200">
-            <button
-              name="reset"
-              type="button"
-              class="text-xs font-medium text-gray-600 underline rounded"
-            >
-              Reset All
-            </button>
-
-            <button
-              name="commit"
-              type="button"
-              class="px-5 py-3 text-xs font-medium text-dark bg-slate rounded"
-            >
-              Apply Filters
-            </button>
-          </div>
-        </form>
-      </details>
-    </div>
-
-      <div class="lg:col-span-3">
-        <ProductPageHeader></ProductPageHeader>
-
-        <div class="grid grid-cols-1 gap-px mt-4 bg-gray-200 border border-gray-200 sm:grid-cols-2 lg:grid-cols-3">
-          <template v-for="product in products" >
-            <Product></Product>
-          </template>
+            
+            <div class="flex justify-center items-center">
+                <button class="hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full lg:mt-28 md:mt-12 mt-10 text-white font-medium text-base leading-4">Load More</button>
+            </div>
         </div>
-      </div>
     </div>
+    <!-- modal  -->
+    <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 " v-if="showProductQuickViewModal">
+          <!-- modal -->
+          <div class="modal-dialog modal-xl relative w-auto pointer-events-none">
+            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalXlLabel"></h5>
+                <button type="button"
+                  class=" bg-red-500 btn-close box-content text-white   hover:text-black hover:opacity-75 hover:no-underline" @click="toggleProductQuickViewModal">Close</button>
+              </div>
+              <div class="modal-body relative bg-gray-500">
+                <ProductQuickView  @toggleProductQuickViewModal="toggleProductQuickViewModal" :product="clicked_product"></ProductQuickView> 
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- modal  -->
   </div>
-</section>
-    </div>
 </template>
 <script>
-import Product from "/components/Product.vue";
-import ProductPageHeader from "/components/ProductPageHeader.vue";
+
+import PageBreadCumb from "/components/PageBreadCumb.vue";
+import SortAndPagination from "/components/SortAndPagination.vue";
+import ProductCard from "../../components/ProductCard.vue";
+import ProductQuickView from "../../components/ProductQuickView.vue";
+import FilterProduct from "../../components/FilterProduct.vue";
 export default{
 name: 'ProductIndex',
 components:{
-    
+    ProductCard,
+    FilterProduct
 },
 data(){
   return {
-    // products: []
+    showProductQuickViewModal: false,
+    products_check: [],
+    clicked_product: null,
   }
 },
 computed: {
@@ -226,10 +88,32 @@ computed: {
     },
     
 },
+methods: {
+  toggleProductQuickViewModal(){
+    this.showProductQuickViewModal = !this.showProductQuickViewModal;
+  },
+  fetchProducts(){
+    this.$store.dispatch("product/fetchProducts")
+  },
+  productQuickView(product){
+    this.clicked_product = product
+     this.toggleProductQuickViewModal()
+    console.log('Product Quick View From Index Page', JSON.stringify(product))
+  }
+},
 mounted() {
-    this.$store.dispatch("product/fetchProducts").then(
-      console.log('After ftech products')
-    )
+    
+      this.fetchProducts()
+    
+    
+  },
+  watch: {
+    products_check:{
+      handler: function(){
+        // console.log(this.products);
+        this.$store.dispatch("product/fetchProducts")
+      }
+    }
   }
 }
 </script>
