@@ -1,18 +1,43 @@
 <template>
-     <div class="relative">
-          <div class="absolute top-0 left-0 py-2 px-4 bg-white bg-opacity-50"><p class="text-xs leading-3 text-gray-800">New</p></div>
-          <div class="relative group">
-              <div class="flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
-              <img class="w-full" src="https://i.ibb.co/HqmJYgW/gs-Kd-Pc-Iye-Gg.png" alt="A girl Posing Image" />
-              <div class="absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
-                  <button class="font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Add to bag</button>
-                  <button class="bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white" @click="$emit('productQuickView',product)">Quick View</button>
-              </div>
-          </div>
-          <p class="font-normal text-xl leading-5 text-gray-800 md:mt-6 mt-4">{{product.name}} {{product.clubId ? product.clubId.name : ''}}</p>
-          <p class="font-semibold text-xl leading-5 text-gray-800 mt-4">${{product.price}}</p>
-          <p class="font-normal text-base leading-4 text-gray-600 mt-4">2 colours</p>
-      </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="product-wrapper mb-50">
+            <div class="product-img mb-25">
+                <a href="product-details.html">
+                    <img src="~assets/img/product/pro13.jpg" alt="">
+                    <img class="secondary-img" src="~assets/img/product/pro14.jpg" alt="">
+                </a>
+                <div class="product-action text-center">
+                    <a href="#" title="Shoppingb Cart">
+                        <i class="flaticon-shopping-cart"></i>
+                    </a>
+                    <a href="#" title="Quick View">
+                        <i class="flaticon-eye"></i>
+                    </a>
+                    <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                        <i class="flaticon-compare"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-content">
+                <div class="pro-cat mb-10">
+                    <a href="shop.html">decor, </a>
+                    <a href="shop.html">furniture</a>
+                </div>
+                <h4>
+                    <a href="product-details.html">Minimal Troma Furniture</a>
+                </h4>
+                <div class="product-meta">
+                    <div class="pro-price">
+                        <span>$119.00 USD</span>
+                        <span class="old-price">$230.00 USD</span>
+                    </div>
+                </div>
+                <div class="product-wishlist">
+                    <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
 import { mapGetters } from "vuex";

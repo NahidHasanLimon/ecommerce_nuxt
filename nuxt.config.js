@@ -18,7 +18,18 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.css',
+    '~/assets/css/bootstrap.min.css',
+    '~/assets/css/owl.carousel.min.css',
+    '~/assets/css/animate.min.css',
+    '~/assets/css/magnific-popup.css',
+    '~/assets/css/fontawesome-all.min.css',
+    '~/assets/css/flaticon.css',
+    '~/assets/css/meanmenu.css',
+    '~/assets/css/meanmenu.css',
+    '~/assets/css/slick.css',
+    '~/assets/css/default.css',
+    '~/assets/css/style.css',
+    '~/assets/css/responsive.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -42,7 +53,6 @@ export default {
   build: {
     postcss: {
       plugins: {
-        tailwindcss: {},
         autoprefixer: {},
       },
     },

@@ -1,79 +1,440 @@
 <template>
-<div>
-    <div class="2xl:container 2xl:mx-auto">
-        <div class="bg-gray-50 text-center lg:py-10 md:py-8 py-6">
-            <p class="w-10/12 mx-auto md:w-full font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-center text-gray-800">Summer Collection Vol-1</p>
-        </div>
-        <div class="py-6 lg:px-20 md:px-6 px-4">
-            <!-- BreadCumb -->
-            <PageBreadCumb></PageBreadCumb>
-            <!-- BreadCumb -->
-          
-            <div class="flex justify-between items-center">
-                <div class="flex space-x-3 justify-center items-center">
-                    <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.75 7.5H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
-                        <path d="M3.75 12H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
-                        <path d="M3.75 16.5H20.25" stroke="#1F2937" stroke-miterlimit="10" stroke-linecap="round" />
-                    </svg>
-                    <p class="font-normal text-base leading-4 text-gray-800">Filter</p>
-                </div>
-                <p class="cursor-pointer hover:underline duration-100 font-normal text-base leading-4 text-gray-600">Showing 18 products</p>
-                <SortAndPagination></SortAndPagination>
-            </div>
-            <div class="grid grid-rows-3 grid-flow-col gap-4">
-              <div class="row-start-1 row-end-4 ...">
-                <FilterProduct></FilterProduct>
-              </div>
+<main>
 
-              <div class="row-start-1 row-end-4 ...">
-                  <!-- Product Grid  -->
-                    <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10 ">
-                        <!-- PRoduct Card  -->
-                        <template v-for="product in products">
-                          <ProductCard :product="product" @productQuickView="productQuickView"></ProductCard>
-                        </template>
+        <!-- breadcrumb-area-start -->
+        <PageBreadCumb></PageBreadCumb>
+        <!-- breadcrumb-area-end -->
+
+        <!-- shop-area start -->
+        <section class="shop-area pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4">
+                        <!-- Filter Sidebar -->
+                        <FilterProduct></FilterProduct>
+                        <!-- Filter Sidebar -->
                     </div>
-                  <!-- Product Grid  -->
-              </div>
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="shop-banner mb-50">
+                            <img src="~/assets/img/bg/shop-banner.jpg" alt="">
+                        </div>
+                        <!-- tab filter -->
+                        <div class="row mb-10">
+                            <div class="col-xl-5 col-lg-6 col-md-6">
+                                <div class="product-showing mb-40">
+                                    <p>Showing 1–22 of 32 results</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-6 col-md-6">
+                                <div class="shop-tab f-right">
+                                    <ul class="nav text-center" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                                                aria-selected="true"><i class="fas fa-list-ul"></i> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                                                aria-selected="false"><i class="fas fa-th-large"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Sort   -->
+                                <Sort></Sort>
+                                <!-- Sort a  -->
+                            </div>
+                        </div>
+                        <!-- tab content -->
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                <!-- Product card  -->
+                                <template v-for="product in  products">
+                                    <ProductCard :product="product"></ProductCard>
+                                </template>
+                                 <!-- Product card  -->
+                                    
+                                
+                                   
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro13.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro14.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                    <span class="sale">sale</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro11.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro12.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro15.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro16.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro6.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro7.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro18.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro19.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                    <span class="sale">sale</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro5.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro6.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                    <span class="sale">sale</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro20.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro21.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                    <span class="sale">sale</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="product-wrapper mb-30">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/assets/img/product/pro9.jpg" alt="">
+                                                    <img class="secondary-img" src="~/assets/img/product/pro10.jpg" alt="">
+                                                </a>
+                                                <div class="sale-tag">
+                                                    <span class="new">new</span>
+                                                    <span class="sale">sale</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="product-content pro-list-content pr-0 mb-50">
+                                            <div class="pro-cat mb-10">
+                                                <a href="shop.html">decor, </a>
+                                                <a href="shop.html">furniture</a>
+                                            </div>
+                                            <h4>
+                                                <a href="product-details.html">Minimal Troma Furniture</a>
+                                            </h4>
+                                            <div class="product-meta mb-10">
+                                                <div class="pro-price">
+                                                    <span>$119.00 USD</span>
+                                                    <span class="old-price">$230.00 USD</span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="product-action">
+                                                <a href="#" title="Shoppingb Cart">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                                <a href="#" title="Quick View">
+                                                    <i class="flaticon-eye"></i>
+                                                </a>
+                                                <a href="#" title="Wishlist"><i class="flaticon-like"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pagination -->
+                        <Pagination></Pagination>
+                        <!-- Pagination -->
+                    </div>
+                </div>
             </div>
-            
-            <div class="flex justify-center items-center">
-                <button class="hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full lg:mt-28 md:mt-12 mt-10 text-white font-medium text-base leading-4">Load More</button>
-            </div>
-        </div>
-    </div>
-    <!-- modal  -->
-    <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 " v-if="showProductQuickViewModal">
-          <!-- modal -->
-          <div class="modal-dialog modal-xl relative w-auto pointer-events-none">
-            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalXlLabel"></h5>
-                <button type="button"
-                  class=" bg-red-500 btn-close box-content text-white   hover:text-black hover:opacity-75 hover:no-underline" @click="toggleProductQuickViewModal">Close</button>
-              </div>
-              <div class="modal-body relative bg-gray-500">
-                <ProductQuickView  @toggleProductQuickViewModal="toggleProductQuickViewModal" :product="clicked_product"></ProductQuickView> 
-              </div>
-            </div>
-          </div>
-        </div>
-    <!-- modal  -->
-  </div>
+        </section>
+        <!-- shop-area end -->
+
+
+        </main>
 </template>
 <script>
 
-import PageBreadCumb from "/components/PageBreadCumb.vue";
-import SortAndPagination from "/components/SortAndPagination.vue";
-import ProductCard from "../../components/ProductCard.vue";
+
 import ProductQuickView from "../../components/ProductQuickView.vue";
+import PageBreadCumb from "../../components/PageBreadCumb.vue";
 import FilterProduct from "../../components/FilterProduct.vue";
+import Sort from "../../components/Sort.vue";
+import Pagination from "../../components/Pagination.vue";
+import ProductCard from "../../components/ProductCard.vue";
 export default{
 name: 'ProductIndex',
 components:{
     ProductCard,
-    FilterProduct
+    FilterProduct,
+    PageBreadCumb,
+    FilterProduct,
+    Sort,
+    Pagination,
+    Pagination,
+    ProductCard
 },
 data(){
   return {

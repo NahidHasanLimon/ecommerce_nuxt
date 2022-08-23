@@ -1,6 +1,34 @@
 <template>
-    <div>
-        <p class="font-normal text-sm leading-3 text-gray-600">Home / Shop by Category / Women</p>
-          <hr class="w-full bg-gray-200 my-6" />
-      </div>
+    <section class="breadcrumb-area" data-background="img/bg/page-title.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-text text-center">
+                            <h1>Our Shop</h1>
+                            <ul class="breadcrumb-menu">
+                                <li><a href="index.html">home</a></li>
+                                <li><span>shop</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 </template>
+<script>
+export default{
+name: 'PageBreadCumb',
+props: [],
+components:{
+    
+},
+methods: {
+
+},
+created() {
+  console.log('Bread Cumb ')
+},
+
+
+}
+</script>
