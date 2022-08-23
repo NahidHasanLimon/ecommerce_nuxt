@@ -3,8 +3,8 @@
         <div class="product-wrapper mb-50">
             <div class="product-img mb-25">
                 <a href="product-details.html">
-                    <img src="~assets/img/product/pro13.jpg" alt="">
-                    <img class="secondary-img" src="~assets/img/product/pro14.jpg" alt="">
+                    <img src="~assets/img/product/cp1.jpg" alt="">
+                    <img class="secondary-img" src="~assets/img/product/cp1.jpg" alt="">
                 </a>
                 <div class="product-action text-center">
                     <a href="#" title="Shoppingb Cart">

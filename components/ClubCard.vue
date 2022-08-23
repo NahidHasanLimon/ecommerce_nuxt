@@ -1,8 +1,14 @@
 <template>
       <div class="shop-widget">
-          <h3 class="shop-title">Brand</h3>
+          <h3 class="shop-title">Club</h3>
           <ul class="shop-link" v-for="club in clubs">
-              <li><i class="far fa-square"></i> Apex</li>
+              <li><input
+                  id="toy"
+                  type="checkbox"
+                  name="type[toy]"
+                  class="w-5 h-5 border-gray-300 rounded"
+                /> {{club.name}}</li>
+              
           </ul>
       </div>
 </template>
@@ -25,6 +31,10 @@ mounted() {
 },
 created() {
   console.log('club Card Component')
+  if (process.client){
+
+    console.log(window.innerWidth, window.innerHeight);
+  }
 },
 
 }

@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-xl-8 col-lg-8">
                         <div class="shop-banner mb-50">
-                            <img src="~/assets/img/bg/shop-banner.jpg" alt="">
+                            <!-- <img src="~/assets/img/bg/shop-banner.jpg" alt=""> -->
                         </div>
                         <!-- tab filter -->
                         <div class="row mb-10">
