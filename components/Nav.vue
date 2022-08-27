@@ -4,13 +4,15 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
-                            <div class="basic-bar cat-toggle">
-                                <span class="bar1"></span>
-                                <span class="bar2"></span>
-                                <span class="bar3"></span>
-                            </div>
+                             <NuxtLink to="/">
+                                <div class="basic-bar cat-toggle">
+                                    <span class="bar1"></span>
+                                    <span class="bar2"></span>
+                                    <span class="bar3"></span>
+                                </div>
+                            </NuxtLink>
                             <div class="logo">
-                                <a href="index.html"><img src="~assets/img/logo/logo.png" alt=""></a>
+                                <NuxtLink to="/"><img src="~assets/img/logo/logo.png" alt=""></NuxtLink>
                             </div>
 
                             <div class="category-menu">
@@ -31,27 +33,14 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li>
-                                            <a href="index.html">Home</a>
-                                            <ul class="submenu">
-                                                <li>
-                                                    <a href="index.html">Home Style 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-2.html">Home Style 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-3.html">Home Style 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-4.html">Home Style 4</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-5.html">Home Style 5</a>
-                                                </li>
-                                            </ul>
+                                            <NuxtLink to="/">
+                                                Home
+                                            </NuxtLink>
                                         </li>
                                         <li class="mega-menu">
-                                            <a href="shop.html">Shop</a>
+                                            <NuxtLink to="/products">
+                                                Shop
+                                            </NuxtLink>
                                             <ul class="submenu ">
                                                 <li>
                                                     <a href="#">Category View</a>
@@ -116,7 +105,9 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="shop-filter.html">Products </a>
+                                            <NuxtLink to="/products">
+                                                Products
+                                            </NuxtLink>
                                         </li>
                                         <li>
                                             <a href="blog.html">Blog</a>
@@ -151,34 +142,9 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Pages</a>
-                                            <ul class="submenu">
-                                                <li>
-                                                    <a href="about.html">About Us</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="contact.html">Contact Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="login.html">login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="register.html">Register</a>
-                                                </li>
-                                                <li>
-                                                    <a href="cart.html">Shoping Cart</a>
-                                                </li>
-                                                <li>
-                                                    <a href="checkout.html">Checkout</a>
-                                                </li>
-                                                <li>
-                                                    <a href="wishlist.html">Wishlist</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact</a>
+                                            <NuxtLink to="/contact">
+                                                Contact
+                                            </NuxtLink>
                                         </li>
                                     </ul>
                                 </nav>

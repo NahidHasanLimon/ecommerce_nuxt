@@ -10,6 +10,7 @@
 
                           <!-- Filter Card  -->
                           <ClubCard></ClubCard>
+                          <CountryCard></CountryCard>
                           <!-- Filter Card  -->
 
                             <div class="shop-widget">

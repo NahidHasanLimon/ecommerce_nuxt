@@ -1,5 +1,5 @@
 <template>
-    <section class="breadcrumb-area" data-background="img/bg/page-title.png">
+    <section class="breadcrumb-area p-0" data-background="img/bg/page-title.png">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">

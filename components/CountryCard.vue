@@ -1,35 +1,17 @@
 <template>
-    <div >
-        
-        <fieldset>
-            <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-              Countries
-            </legend>
-            <div class="px-5 py-6 space-y-2">
-                <template v-for="(country, index) in countries" >
-                  <div class="flex items-center">
-                    <input
-                      type="checkbox"
-                      class="w-5 h-5 border-gray-300 rounded "
-                      v-model="checkedCountries"
-                      :value="country.name"
-                    />
-                    <label :for="index"  class="ml-3 text-sm font-medium" >{{country.name}}</label>
-                  </div>
-                </template>
-              
-
-              <div class="pt-2">
-                <button
-                  type="button"
-                  class="text-xs text-gray-500 underline"
-                >
-                  Reset Type
-                </button>
-              </div>
-            </div>
-        </fieldset>
-    </div>
+ <div class="shop-widget">
+      <h3 class="shop-title">country</h3>
+      <ul class="shop-link" v-for="country in countries">
+          <li><input
+              id="toy"
+              type="checkbox"
+              v-model="checkedCountries"
+              :value="country.name"
+              class="w-5 h-5 border-gray-300 rounded"
+            /> {{country.name}}</li>
+          
+      </ul>
+  </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -55,14 +37,15 @@ mounted(){
 watch: {
     checkedCountries:{
       handler: function(){
-        const filterPayload = {
-            'country' : this.checkedCountries
-        }
-        const arrayToStringOfChecked = this.checkedCountries.join('_');
-        if(arrayToStringOfChecked && arrayToStringOfChecked!== null){
+        this.$updateQueryParams('country',this.checkedCountries)
+        // const filterPayload = {
+        //     'country' : this.checkedCountries
+        // }
+        // const arrayToStringOfChecked = this.checkedCountries.join('_');
+        // if(arrayToStringOfChecked && arrayToStringOfChecked!== null){
 
-          this.$router.push({path: this.$route.path, query: { country: arrayToStringOfChecked }});
-        }
+        //   this.$router.push({path: this.$route.path, query: { country: arrayToStringOfChecked }});
+        // }
         // this.$store.dispatch("product/fetchProducts",filterPayload)
       }
     }
