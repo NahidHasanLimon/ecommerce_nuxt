@@ -22,22 +22,8 @@ export const state = () => ({
   export const actions = {
     
     async fetchProducts(state, filterPayload) {
-      console.log('ki je korbo',state.queryParams)
-      // const temp_params = {};
-      if(filterPayload){
-        if(filterPayload.sortBy && typeof(filterPayload.sortBy) != "undefined" && (filterPayload.sortBy !== null)){
-          console.log('this is from sortBy')
-          const sortbyArr = filterPayload.sortBy.split("-")
-          state.queryParams['sortBy'] = sortbyArr[0]; 
-          state.queryParams['orderBy'] = sortbyArr[1]
-        }
-        // if(filterPayload.country && typeof(filterPayload.country) != "undefined" && (filterPayload.country !== null)){
-        //   console.log('this is from country')
-        //   temp_params['country'] = JSON.stringify(filterPayload.country)
-        // }
-        
-      }
-      const params = state.queryParams
+      const params = filterPayload
+      console.log('Filter payload is',filterPayload)
       
       
 

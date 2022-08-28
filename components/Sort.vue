@@ -25,15 +25,11 @@ watch: {
     selectedSortBy:{
       handler: function(){
         this.$updateQueryParams('sortBy',this.selectedSortBy)
-        // const filterPayload = {
-        //     'sortBy' : this.selectedSortBy
-        // }
-        // this.$store.dispatch("product/fetchProducts",filterPayload)
       }
     }
   },
 created() {
-  console.log('Sort  Card Component')
+   this.selectedSortBy = this.$revertSpecificQueryParamsToArray('sortBy') ? this.$revertSpecificQueryParamsToArray('sortBy') : ''
 },
 
 }

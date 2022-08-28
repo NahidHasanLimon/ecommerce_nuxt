@@ -49,9 +49,6 @@ components:{
     
 },
 methods: {
-  // productQuickViewBinded(){
-  //    console.log('product quick view clicked')
-  // }
 },
 created() {
   console.log('product is',this.product.name)

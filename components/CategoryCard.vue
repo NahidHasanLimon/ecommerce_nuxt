@@ -5,7 +5,7 @@
           <li><input
               id="toy"
               type="checkbox"
-              v-model="checkedCountries"
+              v-model="checkedCategories"
               :value="country.name"
               class="w-5 h-5 border-gray-300 rounded"
             /> {{country.name}}</li>
@@ -20,7 +20,7 @@ name: 'CountryCard',
 props: [''],
 data() {
   return {
-    checkedCountries : [],
+    checkedCategories : [],
   }
 },
 components:{
@@ -35,14 +35,15 @@ mounted(){
     this.$store.dispatch("country/fetchCountries")
 },
 watch: {
-    checkedCountries:{
+    checkedCategories:{
       handler: function(){
-        this.$store.dispatch("product/fetchProducts",this.$updateQueryParams('country',this.checkedCountries))
+        const query = this.$updateQueryParams('country',this.checkedCategories)
+        this.$store.dispatch("product/fetchProducts",query)
       }
     }
   },
 created() {
-  this.checkedCountries = this.$revertSpecificQueryParamsToArray('country')
+ this.checkedCategories = this.$revertQueryParamsToArray('country')
 },
 
 }

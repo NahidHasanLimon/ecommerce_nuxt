@@ -36,34 +36,17 @@ mounted() {
     this.$store.dispatch("club/fetchclubs")  
 },
   methods: {
-    updateQueryParams() {
-       let query = Object.assign({}, this.$route.query);
-        if(this.checkedClubs && this.checkedClubs.length){
-            const arrayToStringOfChecked = this.checkedClubs.join('_');
-            query['club'] =  arrayToStringOfChecked 
-        }else{
-              delete query.club
-        }
-        this.$router.push({path: this.$route.path, query:query});
-
-        this.$store.dispatch("product/fetchProducts",query)
-    }
   },
 watch: {
     checkedClubs:{
       handler: function(){
-        this.$updateQueryParams('club',this.checkedClubs)
-        // this.updateQueryParams()
+         this.$store.dispatch("product/fetchProducts",this.$updateQueryParams('club',this.checkedClubs))
         
       }
     }
   },
 created() {
-  console.log('club Card Component')
-  if (process.client){
-
-    console.log(window.innerWidth, window.innerHeight);
-  }
+  this.checkedClubs = this.$revertSpecificQueryParamsToArray('club')
 },
 
 }

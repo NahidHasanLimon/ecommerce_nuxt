@@ -15,13 +15,25 @@ export default ({ app }, inject) => {
               delete query[calledFrom]
              
         }
-        console.log('Curren paramssss is::',params)
         app.router.push({path: app.router.currentRoute.path, query:query});
-
-        // this.$store.dispatch("product/fetchProducts",query)
-
-
-
+        return query;
+    })
+    inject('revertSpecificQueryParamsToArray', (calledFrom) => {
+        let query = Object.assign({}, app.router.currentRoute.query);
+        let reverted_array = []
+         if(query && Object.keys(query).length !== 0 && Object.getPrototypeOf(query) !== Object.prototype > 0){
+            console.log('inside ',calledFrom)
+            if(query[calledFrom]){
+                if(calledFrom == 'club' || calledFrom == 'country'){
+                    reverted_array = query[calledFrom].split('_')
+                }
+                if(calledFrom == 'sortBy'){
+                    reverted_array = query[calledFrom]
+                }
+            }
+        }
+        console.log('Reverted array is,', query)
+        return reverted_array;
     })
   }
   
