@@ -24,10 +24,11 @@ data() {
 watch: {
     selectedSortBy:{
       handler: function(){
-        const filterPayload = {
-            'sortBy' : this.selectedSortBy
-        }
-        this.$store.dispatch("product/fetchProducts",filterPayload)
+        this.$updateQueryParams('sortBy',this.selectedSortBy)
+        // const filterPayload = {
+        //     'sortBy' : this.selectedSortBy
+        // }
+        // this.$store.dispatch("product/fetchProducts",filterPayload)
       }
     }
   },

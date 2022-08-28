@@ -1,12 +1,12 @@
 <template>
   <div class="shop-widget">
       <h3 class="shop-title">Club</h3>
-      <ul class="shop-link" v-for="club in clubs">
+      <ul class="shop-link" v-for="club in clubs" :key="club._id">
           <li><input
               id="toy"
               type="checkbox"
               v-model="checkedClubs"
-              :value="club.name"
+              :value="club._id"
               class="w-5 h-5 border-gray-300 rounded"
             /> {{club.name}}</li>
           
@@ -15,7 +15,6 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import _ from "lodash"
 export default{
 name: 'ClubCard',
 props: [''],
@@ -34,8 +33,7 @@ computed: {
     
 },
 mounted() {
-    this.$store.dispatch("club/fetchclubs")
-       
+    this.$store.dispatch("club/fetchclubs")  
 },
   methods: {
     updateQueryParams() {

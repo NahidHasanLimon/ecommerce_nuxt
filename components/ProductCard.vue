@@ -20,16 +20,17 @@
             </div>
             <div class="product-content">
                 <div class="pro-cat mb-10">
-                    <a href="shop.html">decor, </a>
-                    <a href="shop.html">furniture</a>
+                    <template v-for="tag in product.tags" >
+                        <a href="shop.html">{{tag}}</a>
+                    </template>
                 </div>
                 <h4>
-                    <a href="product-details.html">Minimal Troma Furniture</a>
+                    <a href="product-details.html">{{product.name}}</a>
                 </h4>
                 <div class="product-meta">
                     <div class="pro-price">
-                        <span>$119.00 USD</span>
-                        <span class="old-price">$230.00 USD</span>
+                        <span>${{product.price}} USD</span>
+                        <span class="old-price">${{product.price}} USD</span>
                     </div>
                 </div>
                 <div class="product-wishlist">
