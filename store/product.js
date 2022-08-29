@@ -24,8 +24,6 @@ export const state = () => ({
     async fetchProducts(state, filterPayload) {
       const params = filterPayload
       console.log('Filter payload is',filterPayload)
-      
-      
 
       try {
         const data = await this.$axios.$get('/api/product',{params})
@@ -36,14 +34,14 @@ export const state = () => ({
             console.log(error)
         }
     },
-    async fetchProductsBacked(state) {
-      try {
-        const data = await this.$axios.$get('/api/product')
-        console.log('this is from action',data)
-        state.commit('SET_PRODUCTS', data)
-        }
-        catch (error) {
-            console.log(error)
-        }
-    }
+    // async fetchProductsBacked(state) {
+    //   try {
+    //     const data = await this.$axios.$get('/api/product')
+    //     console.log('this is from action',data)
+    //     state.commit('SET_PRODUCTS', data)
+    //     }
+    //     catch (error) {
+    //         console.log(error)
+    //     }
+    // }
   }

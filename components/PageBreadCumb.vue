@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="breadcrumb-text text-center">
-                            <h1>Our Shop</h1>
+                            <!-- <h1>Our Shop</h1> -->
                             <ul class="breadcrumb-menu">
                                 <li><a href="index.html">home</a></li>
                                 <li><span>shop</span></li>

@@ -41,7 +41,6 @@ watch: {
     checkedClubs:{
       handler: function(){
          this.$store.dispatch("product/fetchProducts",this.$updateQueryParams('club',this.checkedClubs))
-        
       }
     }
   },

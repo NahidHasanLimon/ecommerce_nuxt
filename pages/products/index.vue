@@ -1,6 +1,5 @@
 <template>
 <main>
-
         <!-- breadcrumb-area-start -->
         <PageBreadCumb></PageBreadCumb>
         <!-- breadcrumb-area-end -->
@@ -453,9 +452,9 @@ methods: {
   toggleProductQuickViewModal(){
     this.showProductQuickViewModal = !this.showProductQuickViewModal;
   },
-  fetchProducts(){
-    this.$store.dispatch("product/fetchProducts")
-  },
+//   fetchProducts(){
+//     this.$store.dispatch("product/fetchProducts")
+//   },
   productQuickView(product){
     this.clicked_product = product
      this.toggleProductQuickViewModal()
@@ -463,16 +462,12 @@ methods: {
   }
 },
 mounted() {
-    
-      this.fetchProducts()
-    
-    
+    //   this.fetchProducts()
   },
   watch: {
     products_check:{
       handler: function(){
-        // console.log(this.products);
-        this.$store.dispatch("product/fetchProducts")
+        // this.$store.dispatch("product/fetchProducts")
       }
     }
   }
