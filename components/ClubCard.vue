@@ -6,7 +6,7 @@
               id="toy"
               type="checkbox"
               v-model="checkedClubs"
-              :value="club._id"
+              :value="club.name"
               class="w-5 h-5 border-gray-300 rounded"
             /> {{club.name}}</li>
           
