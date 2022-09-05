@@ -2,10 +2,15 @@
     <div class="col-lg-4 col-md-6">
         <div class="product-wrapper mb-50">
             <div class="product-img mb-25">
-                <a href="product-details.html">
-                    <img src="~assets/img/product/cp1.jpg" alt="">
-                    <img class="secondary-img" src="~assets/img/product/cp1.jpg" alt="">
-                </a>
+                <!-- <a href="product-details.html"> -->
+                    <nuxt-link
+                        :to="{ name: 'products-slug', params: { slug: product.name, product: product }}"      
+                        class="btn btn-primary"
+>
+                    <img src="~assets/img/product/cp1.jpg" alt="" />
+                    <img class="secondary-img" src="~assets/img/product/cp1.jpg" alt="" />
+                </nuxt-link>
+                <!-- </a> -->
                 <div class="product-action text-center">
                     <a href="#" title="Shoppingb Cart">
                         <i class="flaticon-shopping-cart"></i>
@@ -42,11 +47,12 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import NuxtLogo from "./NuxtLogo.vue";
 export default{
 name: 'ProductCard',
 props: ['product'],
 components:{
-    
+    NuxtLogo
 },
 methods: {
 },
