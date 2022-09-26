@@ -5,6 +5,12 @@ export const state = () => ({
   export const getters = {
     getCounter(state) {
       return state.counter
+    },
+    isAuthenticated(state) {
+      return state.auth.loggedIn
+    },
+    loggedInUser(state) {
+      return state.auth.user
     }
   }
   

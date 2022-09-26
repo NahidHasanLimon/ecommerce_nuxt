@@ -156,7 +156,26 @@
                                     <li class="search-btn">
                                         <a class="search-btn nav-search search-trigger" href="#"><i class="fas fa-search"></i></a>
                                     </li>
-                                    <li class="login-btn"><a href="login.html"><i class="far fa-user"></i></a></li>
+                                    <template v-if="!isAuthenticated">
+                                        <li class="login-btn">
+                                            <NuxtLink
+                                                class="nav-link active"
+                                                aria-current="page"
+                                                to="/login"
+                                                > <i class="far fa-user"></i>
+                                            </NuxtLink>
+                                    </li>
+                                    </template>
+                                    <template v-else>
+                                        <li class="login-btn">
+                                            <NuxtLink
+                                                class="nav-link active"
+                                                aria-current="page"
+                                                to="/profile"
+                                                > <i class="far fa-user"></i>
+                                            </NuxtLink>
+                                    </li>
+                                    </template>
                                     <li class="d-shop-cart"><a href="#"><i class="flaticon-shopping-cart"></i> <span class="cart-count">3</span></a>
                                         <ul class="minicart">
                                             <li>
@@ -265,6 +284,11 @@ export default {
             options: false
         };
     },
+    computed: {
+            isAuthenticated() {
+                return this.$store.getters.isAuthenticated;  // it check if user isAuthenticated 
+            }
+        }
    
 };
 </script>

@@ -1,24 +1,7 @@
 <template>
     <main>
-    <div>
-        <h1>{{ product }} / {{ slug }}</h1>
-    </div>
 <!-- breadcrumb-area-start -->
-<section class="breadcrumb-area" data-background="img/bg/page-title.png">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="breadcrumb-text text-center">
-                    <h1>Our Shop</h1>
-                    <ul class="breadcrumb-menu">
-                        <li><a href="index.html">home</a></li>
-                        <li><span>shop details</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<PageBreadCumb> </PageBreadCumb>
 <!-- breadcrumb-area-end -->
 
 <!-- shop-area start -->
@@ -68,7 +51,7 @@
                         <a href="#">decor,</a>
                         <a href="#">furniture</a>
                     </div>
-                    <h2 class="pro-details-title mb-15">Limonda Women Winter Cloth</h2>
+                    <h2 class="pro-details-title mb-15">Limonda {{product.name}}</h2>
                     <div class="details-price mb-20">
                         <span>$119.00</span>
                         <span class="old-price">$246.00</span>
@@ -93,12 +76,12 @@
                             <div class="variant-name">
                                 <span>size</span>
                             </div>
-                            <ul class="shop-link shop-size">
-                                <li><a href="shop.html">xxl   </a></li>
-                                <li class="active"><a href="shop.html">xl </a></li>
-                                <li><a href="shop.html">lg </a></li>
-                                <li><a href="shop.html">md  </a></li>
-                                <li><a href="shop.html">sm </a></li>
+                            <ul class="shop-link shop-size ">
+                                <li><a class="btn p-0 m-0"> xxl   </a></li>
+                                <li class="active"><a class="btn ">xl </a></li>
+                                <li><a class="btn p-0 m-0">lg </a></li>
+                                <li><a class="btn p-0 m-0">md  </a></li>
+                                <li><a class="btn p-0 m-0">sm </a></li>
                             </ul>
                         </div>
 
@@ -110,8 +93,10 @@
                         <div class="product-info-list variant-item">
                             <ul>
                                 <li><span>Brands:</span> Hewlett-Packard</li>
-                                <li><span>Product Code:</span> d12</li>
-                                <li><span>Reward Points:</span> 100</li>
+                                <li v-if="product.club"><span>Club:</span> {{product.club.name}}</li>
+                                <li v-if="product.country"><span>country:</span> {{product.country.name}}</li>
+                                <li v-if="product.kitType"><span>Kit Type:</span> {{product.kitType}}</li>
+                                <li><span>Product Code:</span> {{product.sku}}</li>
                                 <li><span>Stock:</span> <span class="in-stock">In Stock</span></li>
                             </ul>
                         </div>
@@ -150,15 +135,7 @@
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="home6" role="tabpanel" aria-labelledby="home-tab6">
                             <div class="desc-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-                                illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-                                ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                                <p>{{product.description}}</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="profile6" role="tabpanel" aria-labelledby="profile-tab6">
@@ -490,11 +467,23 @@
 </main>
 </template>
 <script>
+    import PageBreadCumb from "../../components/PageBreadCumb.vue";
     export default {
+        components:{
+            PageBreadCumb,
+        },
+        
       async asyncData({ params }) {
-        const product = params.product
         const slug = params.slug
-        return { product, slug }
-      }
+        return { slug }
+      },
+      mounted() {
+        this.$store.dispatch("product/fetchAProductBySlug",this.slug);
+      },
+      computed: {
+            product() { 
+                return this.$store.state.product.product; 
+            }
+        }
     }
   </script>

@@ -30,6 +30,7 @@ export default {
     '~/assets/css/default.css',
     '~/assets/css/style.css',
     '~/assets/css/responsive.css',
+    
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -47,8 +48,14 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/auth-next'
   ],
+  bootstrapVue: {
+    bootstrapCSS: true, // Or `css: false`
+    bootstrapVueCSS: true // Or `bvCSS: false`
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -61,5 +68,38 @@ export default {
   axios: {
     // proxy: true
     baseURL: 'http://localhost:5000'
+  },
+  auth: {
+    strategies: {
+      local: {
+        scheme: 'refresh',
+        token: {
+          property: 'token',
+          maxAge: 30,
+          global: true,
+          // type: 'Bearer'
+          type: false
+        },
+        refreshToken: {
+          property: false,
+          maxAge: 60 * 60 * 24 * 30,
+          tokenRequired: true,
+        },
+        user: {
+          property: false,
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/login', method: 'post' },
+          refresh: { url: '/refresh-token', method: 'post', propertyName: 'data.refresh_token' },
+          user: { url: '/profile', method: 'get' },
+          // logout: { url: '/logout', method: 'post' }
+        },
+        // autoLogout: false
+      }
+    }
+  },
+  router: {
+    // middleware: ['auth']
   }
 }

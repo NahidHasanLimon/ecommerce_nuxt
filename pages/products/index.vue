@@ -118,11 +118,6 @@ mounted() {
     //   this.fetchProducts()
   },
   watch: {
-    products_check:{
-      handler: function(){
-        // this.$store.dispatch("product/fetchProducts")
-      }
-    }
   }
 }
 </script>

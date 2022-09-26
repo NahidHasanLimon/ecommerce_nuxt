@@ -4,7 +4,7 @@
             <div class="product-img mb-25">
                 <!-- <a href="product-details.html"> -->
                     <nuxt-link
-                        :to="{ name: 'products-slug', params: { slug: product.name, product: product }}"      
+                        :to="{ name: 'products-slug', params: { slug: product.slug }}"      
                         class="btn btn-primary"
 >
                     <img src="~assets/img/product/cp1.jpg" alt="" />
