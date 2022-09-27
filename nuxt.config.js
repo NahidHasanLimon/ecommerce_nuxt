@@ -30,12 +30,15 @@ export default {
     '~/assets/css/default.css',
     '~/assets/css/style.css',
     '~/assets/css/responsive.css',
+
+    'vue-slick-carousel/dist/vue-slick-carousel.css'
     
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/updateQueryParams.js'
+    '~/plugins/updateQueryParams.js',
+    { src: './plugins/vue-slick-carousel.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

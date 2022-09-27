@@ -1,7 +1,7 @@
 <template>
   <main>
             <!-- slider-area start -->
-            
+            <SportsCarouselHome></SportsCarouselHome>
             <!-- slider-area end -->
 
             <!-- banner area start -->
